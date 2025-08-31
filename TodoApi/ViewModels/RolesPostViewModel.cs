@@ -15,7 +15,7 @@ public class RolesPostViewModel
     [MinLength(8, ErrorMessage = "Namn måste vara minst 8 tecken.")]
     public required string ItemNumber { get; set; }
 
-    // Example properties for demonstration
+   
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
     public required string Email { get; set; }

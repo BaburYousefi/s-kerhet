@@ -23,20 +23,20 @@ public class TodosController(DataContext context) : ControllerBase
         if (!ModelState.IsValid) return ValidationProblem();
         // if (!ModelState.IsValid) return BadRequest();
 
-        // Sanera datat...
+    
         model.FirstName = _htmlSanitizer.Sanitize(model.FirstName);
         model.LastName = _htmlSanitizer.Sanitize(model.LastName);
         model.Email = _htmlSanitizer.Sanitize(model.Email);
         model.Password = _htmlSanitizer.Sanitize(model.Password);
         model.RoleName = _htmlSanitizer.Sanitize(model.RoleName);
 
-        // Omvalidera modellen...
+       
         ModelState.Clear();
         TryValidateModel(model);
 
         if (!ModelState.IsValid) return ValidationProblem();
 
-        // Mappa modellen till vår entity...
+        
         var toDo = new ToDo
         {
             Title = $"{model.FirstName} {model.LastName}"

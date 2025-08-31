@@ -1,0 +1,7 @@
+Motivering – varför cookies istället för JWT/session/localStorage
+
+I min lösning har jag valt att använda HttpOnly-cookies för autentisering.
+Anledningen är att cookies kan göras HttpOnly och Secure, vilket innebär att de inte kan nås av JavaScript och därför ger ett bättre skydd mot XSS-attacker.
+Jag kan också ställa in SameSite så att cookies bara skickas från min egen klient, vilket minskar risken för CSRF. 
+Till skillnad från localStorage eller sessionStorage där JWT kan läcka till skadliga skript, skickas cookies automatiskt med varje request över HTTPS och hanteras direkt av webbläsaren. 
+Det ger ett enklare och säkrare autentiseringsflöde i min applikation.
